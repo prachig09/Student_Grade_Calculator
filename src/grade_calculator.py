@@ -18,7 +18,9 @@ def grade(avg):
 
 
 def main():
-    marks = []
+    # array (list) to store marks
+    marks = [0] * 5
+
     print("Enter marks for 5 subjects (0–100 only):")
 
     for i in range(5):
@@ -27,19 +29,20 @@ def main():
                 mark = float(input(f"Subject {i + 1}: "))
 
                 if mark < 0 or mark > 100:
-                    print(" Error: Marks must be between 0 and 100")
+                    print("Error: Marks must be between 0 and 100")
                     continue
 
-                marks.append(mark)
+                marks[i] = mark   
                 break
 
             except ValueError:
-                print(" Error: Please enter a valid number")
+                print("Error: Please enter a valid number")
 
     avg = calc_avg(marks)
     result = grade(avg)
 
-    print("\nAverage Marks:", avg)
+    print("\nMarks Array:", marks)
+    print("Average Marks:", avg)
     print("Grade:", result)
 
 
