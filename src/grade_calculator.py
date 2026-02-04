@@ -15,3 +15,33 @@ def grade(avg):
         return "C"
     else:
         return "Fail"
+
+
+def main():
+    marks = []
+    print("Enter marks for 5 subjects (0–100 only):")
+
+    for i in range(5):
+        while True:
+            try:
+                mark = float(input(f"Subject {i + 1}: "))
+
+                if mark < 0 or mark > 100:
+                    print(" Error: Marks must be between 0 and 100")
+                    continue
+
+                marks.append(mark)
+                break
+
+            except ValueError:
+                print(" Error: Please enter a valid number")
+
+    avg = calc_avg(marks)
+    result = grade(avg)
+
+    print("\nAverage Marks:", avg)
+    print("Grade:", result)
+
+
+if __name__ == "__main__":
+    main()

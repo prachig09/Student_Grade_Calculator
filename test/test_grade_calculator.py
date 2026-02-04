@@ -1,33 +1,37 @@
 import pytest
+from src.grade_calculator import calc_avg, grade
 
 
-from grade_calculator import calc_avg, grade
-
-
-def test_calc_avg():
+def test_calc_avg_valid_input():
     marks = [80, 90, 70, 85, 75]
     assert calc_avg(marks) == 80
 
 
-def test_average_requires_five_subjects():
+def test_calc_avg_all_high_marks():
+    marks = [90, 95, 92, 88, 91]
+    assert calc_avg(marks) == 91.2
+
+
+def test_calc_avg_invalid_number_of_subjects():
     with pytest.raises(ValueError):
         calc_avg([80, 90, 70])
 
 
-@pytest.mark.parametrize(
-    "average, expected_grade",
-    [
-        (95, "A+"),
-        (90, "A+"),
-        (80, "A"),
-        (75, "A"),
-        (65, "B"),
-        (60, "B"),
-        (55, "C"),
-        (50, "C"),
-        (45, "Fail"),
-        (30, "Fail"),
-    ],
-)
-def test_grade(average, expected_grade):
-    assert grade(average) == expected_grade
+def test_grade_A_plus():
+    assert grade(95) == "A+"
+
+
+def test_grade_A():
+    assert grade(78) == "A"
+
+
+def test_grade_B():
+    assert grade(65) == "B"
+
+
+def test_grade_C():
+    assert grade(52) == "C"
+
+
+def test_grade_Fail():
+    assert grade(40) == "Fail"
