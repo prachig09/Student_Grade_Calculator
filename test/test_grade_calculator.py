@@ -1,5 +1,5 @@
 import pytest
-from code import calc_avg, grade
+from grade_calculator import calc_avg, grade
 
 
 def test_calc_avg():
