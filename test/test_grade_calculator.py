@@ -1,4 +1,6 @@
 import pytest
+
+
 from grade_calculator import calc_avg, grade
 
 
@@ -9,7 +11,7 @@ def test_calc_avg():
 
 def test_average_requires_five_subjects():
     with pytest.raises(ValueError):
-        calc_avg([80, 90, 70])  # Less than 5 subjects
+        calc_avg([80, 90, 70])
 
 
 @pytest.mark.parametrize(

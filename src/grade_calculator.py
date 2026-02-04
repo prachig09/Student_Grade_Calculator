@@ -1,5 +1,7 @@
 def calc_avg(marks):
-    return sum(marks) / len(marks)
+    if len(marks) != 5:
+        raise ValueError("Exactly 5 subject marks are required")
+    return sum(marks) / 5
 
 
 def grade(avg):
@@ -13,12 +15,3 @@ def grade(avg):
         return "C"
     else:
         return "Fail"
-
-
-marks = [80, 85, 78, 90, 88]
-
-avg = calc_avg(marks)
-final_grade = grade(avg) 
-
-print("Average:", avg)
-print("Grade:", final_grade)
