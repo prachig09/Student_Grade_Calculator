@@ -18,7 +18,6 @@ def grade(avg):
 
 
 def main():
-    # array (list) to store marks
     marks = [0] * 5
 
     print("Enter marks for 5 subjects (0–100 only):")
